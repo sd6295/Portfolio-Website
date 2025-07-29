@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --dark-bg: #0a0a0a;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-accent: #64ffda;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--dark-bg);
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.02"><circle cx="30" cy="30" r="1"/></g></svg>');
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .intro {
+            position: relative;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .intro::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--primary-gradient);
+            border-radius: 26px;
+            z-index: -2;
+            animation: borderRotate 8s linear infinite;
+        }
+
+        .intro::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            background: var(--dark-bg);
+            border-radius: 22px;
+            z-index: -1;
+        }
+
+        @keyframes borderRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .intro h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .intro h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent-gradient);
+            border-radius: 2px;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+
+        #feel {
+            color: var(--text-accent);
+            font-weight: 500;
+            position: relative;
+        }
+
+        .edu {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .edu::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .edu:hover::before {
+            left: 100%;
+        }
+
+        .edu:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.4);
+        }
+
+        .edu h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: var(--secondary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .edu h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-gradient);
+            border-radius: 2px;
+        }
+
+        .edu p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+
+        #int {
+            color: var(--text-accent);
+            font-weight: 500;
+        }
+
+        .redtopro {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .project-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            background: var(--accent-gradient);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(79, 172, 254, 0.3);
+        }
+
+        .project-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .project-button:hover::before {
+            left: 100%;
+        }
+
+        .project-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(79, 172, 254, 0.4);
+        }
+
+        .project-button i {
+            font-size: 1.2rem;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 60px 40px 40px;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--primary-gradient);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .footer-section p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-link.github:hover { color: #f0f6fc; }
+        .social-link.linkedin:hover { color: #0077b5; }
+        .social-link.twitter:hover { color: #1da1f2; }
+        .social-link.instagram:hover { color: #e4405f; }
+
+        .quick-links {
+            list-style: none;
+        }
+
+        .quick-links li {
+            margin-bottom: 12px;
+        }
+
+        .quick-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .quick-links a::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .quick-links a:hover {
+            color: var(--text-accent);
+            padding-left: 24px;
+        }
+
+        .quick-links a:hover::before {
+            opacity: 1;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .contact-info i {
+            width: 20px;
+            color: var(--text-accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .heart {
+            color: #ff6b6b;
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+       
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .intro, .edu, .footer {
+                padding: 30px 25px;
+                border-radius: 20px;
+            }
+            
+            .intro h1, .edu h1 {
+                font-size: 2rem;
+            }
+            
+            .intro p, .edu p {
+                font-size: 1rem;
+            }
+            
+            .project-button {
+                padding: 14px 28px;
+                font-size: 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .intro, .edu, .footer {
+                padding: 25px 20px;
+                border-radius: 16px;
+            }
+            
+            .intro h1, .edu h1 {
+                font-size: 1.8rem;
+            }
+            
+            .intro p, .edu p {
+                font-size: 0.95rem;
+            }
+            
+            .project-button {
+                padding: 12px 24px;
+                font-size: 0.95rem;
+            }
+
+            .social-link {
+                width: 44px;
+                height: 44px;
+            }
+        }
+
+        /* Scroll animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .intro {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .edu {
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .redtopro {
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .footer {
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="intro">
+            <h1>Introduction</h1>
+            <p>Hello! I'm Subham Das, an aspiring software engineer with a passion for coding and technology. I love creating innovative solutions and learning new skills.</p>
+            <p id="feel">Feel free to explore my portfolio to see my projects and skills.</p>
+        </div>
+        
+        <div class="edu">
+            <h1>Educational Background</h1>
+            <p>Currently pursuing B.Tech in Electronics and Communication Engineering from Academy of Technology, Adisaptagram, West Bengal, India.</p>
+            <p>I have a strong foundation in programming languages such as C, C++ as well as in OOPs & DSA. I am also proficient in web development technologies like HTML, CSS, and JavaScript.</p>
+            <p id="int">My interests include machine learning, Artificial Intelligence and software development.</p>
+        </div>
+        
+        <div class="redtopro">
+            <a target="_blank" href="https://github.com/sd6295" class="project-button">
+                <i class="fab fa-github"></i>
+                View My Projects
+            </a> 
+        </div>
+
+        <!-- Footer Section -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Me</h3>
+                    <p>I'm a passionate B.Tech student specializing in Electronics and Communication Engineering with a strong interest in software development and emerging technologies.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/sd6295" target="_blank" class="social-link github">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link linkedin">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="quick-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> sd861760@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +91 6295010912</p>
+                        <p><i class="fas fa-map-marker-alt"></i> West Bengal, India</p>
+                        <p><i class="fas fa-graduation-cap"></i> Academy of Technology</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Skills & Interests</h3>
+                    <p>Programming Languages: C, C++, Java</p>
+                    <p>Web Technologies: HTML, CSS, JavaScript</p>
+                    <p>Tools: GitHub, Bootstrap</p>
+                    <p>Interests: Machine Learning, AI, Software Development</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Subham Das. Made with <span class="heart">❤️</span> and passion for coding.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio Website</title>
+    <link rel="stylesheet" href="portfolio.css">
+    <script src="portfolio.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="mobile-menu-btn" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        
+        <ul id="navlist">
+            <li><a target="_blank" href="about.html">About Me</a></li>
+            <li><a target="_blank" href="skills.html">Skills</a></li>
+            <li><a target="_blank" href="https://github.com/sd6295/">Projects</a></li>
+            <li><a target="_blank" href="contact.html" id="topbtn">Contact Me</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div class="content-wrapper">
+        <div class="myphoto">
+            <img id="myimg" src="/Screenshot_2024-01-15_175701-removebg-preview.png" alt="user image">
+        </div>
+        
+        <section class="intro-section">
+            <div class="intro-text">
+                <h3>Hi, I am</h3>
+                <h1>Subham Das</h1>
+                <h2>...Aspiring Software Engineer</h2>
+            </div>
+            
+            <div class="social-icons">
+                <a href="https://github.com/sd6295" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/subham-das-297910286/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://instagram.com/beingsubham07" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </section>
+    </div>
+</main>
+
+<script>
+function toggleMenu() {
+    const navlist = document.getElementById('navlist');
+    navlist.classList.toggle('active');
+}
+
+
+document.querySelectorAll('#navlist a').forEach(link => {
+    link.addEventListener('click', () => {
+        const navlist = document.getElementById('navlist');
+        navlist.classList.remove('active');
+    });
+});
+</script>
+
+</body>
+</html>
+
